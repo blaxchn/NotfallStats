@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EingabeMaske1Activity"></activity>
+        <activity android:name=".EingabeMaske1Activity" />
+        <activity android:name=".EingabeMaske0Activity"></activity>
     </application>
 
 </manifest>

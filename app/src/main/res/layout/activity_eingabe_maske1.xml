@@ -10,37 +10,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:gravity="center"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/editTextAA"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:hint="00"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="center"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorDeactivated"/>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editTextBB"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:hint="00"
             android:inputType="number"
+            android:maxLength="2"
             android:textAlignment="center"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorDeactivated"/>
 
         <Button
-            android:id="@+id/toggleButton"
+            android:id="@+id/buttonNotarzt"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:onClick="buttonNotarztPressed"
             android:text="N"
-            android:textSize="24sp" />
+            android:textColor="@color/colorDeactivated"
+            android:textSize="36sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/next1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:text="@string/next"
+        android:onClick="next1Pressed"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
 </RelativeLayout>

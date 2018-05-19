@@ -1,20 +1,20 @@
 package com.example.florianbeuckert.notfallstats;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class EingabeMaske0Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_eingabe_maske0);
     }
 
-    public void btnPressed(View v) {
-        final Intent i = new Intent(this, EingabeMaske0Activity.class);
+    public void next0Pressed(View v) {
+        final Intent i = new Intent(this, EingabeMaske1Activity.class);
         startActivity(i);
     }
 }
