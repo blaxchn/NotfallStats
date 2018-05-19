@@ -7,18 +7,18 @@
     tools:context=".EingabeMaske0Activity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextID"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:textSize="36sp"
         android:textColor="@color/colorPrimary"
         android:layout_centerInParent="true"
-        android:hint="123456"
+        android:hint="@string/hint_id"
         android:textColorHint="@color/colorDeactivated"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/next0"
+        android:id="@+id/btnNext0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
