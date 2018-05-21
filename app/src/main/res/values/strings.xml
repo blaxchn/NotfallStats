@@ -1,16 +1,37 @@
 <resources>
     <string name="app_name">NotfallStats</string>
-
-    <string name="next">Weiter</string>
-
+    <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
     <string name="hint_id">123456</string>
-
     <string name="hint_aabb">00</string>
     <string name="notarzt_abk">N</string>
-
+    <string name="next">Weiter</string>
+    <string name="info_text_code_meldung">Bitte geben Sie den gemeldeten Einsatzcode ein</string>
     <string name="meldung">Gemeldeter Einsatzcode</string>
     <string name="meldung_code">10 21 N</string>
-    <string name="meldung_frage">Wurde der Einsatz korrekt gemeldet?</string>
+    <string name="meldung_frage">Verlief der Einsatz wie erwartet?</string>
     <string name="meldung_korrekt">Ja</string>
     <string name="meldung_fehlerhaft">Nein</string>
+    <string name="info_text_grund_fehlmeldung">Es gab folgende Besonderheiten</string>
+    <string-array name="grund_fehlmeldung">
+        <item>Keine Besonderheiten - nur Fehleinstufung</item>
+        <item>Patient verweigert Transport, trotz Transportindikation</item>
+        <item>Patient verweigert Transport, keine Transportindikation</item>
+        <item>Böswillige Alarmierung</item>
+        <item>Kein Patient vorgefunden</item>
+        <item>Einsatzort nicht gefunden</item>
+        <item>Keine Indikation</item>
+        <item>Patient an ÄND verwiesen</item>
+        <item>Patient an Hausarzt verwiesen</item>
+        <item>Patient an KTW verwiesen</item>
+        <item>Patient verstorben</item>
+        <item>NEF abbestellt</item>
+        <item>Vor NEF eingetroffen</item>
+        <item>Nach NEF eingetroffen</item>
+        <item>Auf Anfahrt abgebrochen - durch HvO</item>
+        <item>Auf Anfahrt abgebrochen - umdisponiert</item>
+    </string-array>
+    <string name="checkbox_korrektur">Korrekter Einsatzcode nicht bestimmbar</string>
+    <string name="info_text_code_korrektur">Bitte geben Sie den korrekten Einsatzcode ein</string>
+    <string name="info_text_kommentare">Zusätliche Kommentare</string>
+    <string name="done">Fertig</string>
 </resources>

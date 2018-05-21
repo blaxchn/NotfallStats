@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EingabeMaske1Activity">
+    tools:context=".EingabeMaske4Activity">
 
     <LinearLayout
-        android:id="@+id/linearLayoutEinsatzcode"
+        android:id="@+id/linearLayoutEinsatzcodeKorrektur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextAA"
+            android:id="@+id/editTextAA2"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -31,7 +31,7 @@
             android:textColorHint="@color/colorDeactivated"/>
 
         <EditText
-            android:id="@+id/editTextBB"
+            android:id="@+id/editTextBB2"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
@@ -44,19 +44,19 @@
             android:textColorHint="@color/colorDeactivated"/>
 
         <Button
-            android:id="@+id/buttonNotarzt"
+            android:id="@+id/buttonNotarzt2"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
-            android:onClick="buttonNotarztPressed"
+            android:onClick="buttonNotarzt2Pressed"
             android:text="@string/notarzt_abk"
             android:textColor="@color/colorDeactivated"
             android:textSize="36sp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnNext1"
+        android:id="@+id/btnNext4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -65,18 +65,18 @@
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
         android:text="@string/next"
-        android:onClick="next1Pressed"
+        android:onClick="next4Pressed"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textViewInfoTextCodeMeldung"
+        android:id="@+id/textViewInfoTextCodeKorrektur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayoutEinsatzcode"
+        android:layout_above="@+id/linearLayoutEinsatzcodeKorrektur"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:text="@string/info_text_code_meldung"
+        android:text="@string/info_text_code_korrektur"
         android:textSize="16sp"/>
 
 </RelativeLayout>

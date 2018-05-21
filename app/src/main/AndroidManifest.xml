@@ -19,7 +19,9 @@
         <activity android:name=".EingabeMaske1Activity" />
         <activity android:name=".EingabeMaske0Activity" />
         <activity android:name=".EingabeMaske2Activity" />
-        <activity android:name=".EingabeMaske3Activity"></activity>
+        <activity android:name=".EingabeMaske4Activity" />
+        <activity android:name=".EingabeMaske3Activity" />
+        <activity android:name=".EingabeMaske5Activity"></activity>
     </application>
 
 </manifest>

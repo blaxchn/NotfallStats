@@ -19,8 +19,8 @@ public class EingabeMaske2Activity extends AppCompatActivity {
     }
 
     public void btnJaPressed(View v) {
-        //final Intent i = new Intent(this, EingabeMaske4Activity.class);
-        //startActivity(i);
+        final Intent i = new Intent(this, EingabeMaske5Activity.class);
+        startActivity(i);
     }
 
     public void btnNeinPressed(View v) {
