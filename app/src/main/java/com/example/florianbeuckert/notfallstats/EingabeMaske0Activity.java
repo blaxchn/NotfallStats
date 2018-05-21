@@ -19,8 +19,9 @@ public class EingabeMaske0Activity extends AppCompatActivity {
     }
 
     public void next0Pressed(View v) {
+        // TODO: ID != null
         final Intent i = new Intent(this, EingabeMaske1Activity.class);
-        //i.putExtra("id", editTextID.getText().toString());
+        i.putExtra("id", editTextID.getText().toString());
         startActivity(i);
     }
 }
