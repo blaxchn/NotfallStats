@@ -8,11 +8,19 @@ public class Datensatz {
     private Date datum;
     private Einsatzcode codeGemeldet;
     private Einsatzcode codeRichtig;
-    private String infoBeiFalschmeldung;
-    private String bemerkungen;
+    private String bemerkung;
+    private String kommentar;
 
     public Datensatz() {
+    }
 
+    public Datensatz(int id, Date datum, Einsatzcode codeGemeldet, Einsatzcode codeRichtig, String bemerkung, String kommentar) {
+        this.id = id;
+        this.datum = datum;
+        this.codeGemeldet = codeGemeldet;
+        this.codeRichtig = codeRichtig;
+        this.bemerkung = bemerkung;
+        this.kommentar = kommentar;
     }
 
     public int getId() {
@@ -47,19 +55,19 @@ public class Datensatz {
         this.codeRichtig = codeRichtig;
     }
 
-    public String getInfoBeiFalschmeldung() {
-        return infoBeiFalschmeldung;
+    public String getBemerkung() {
+        return bemerkung;
     }
 
-    public void setInfoBeiFalschmeldung(String infoBeiFalschmeldung) {
-        this.infoBeiFalschmeldung = infoBeiFalschmeldung;
+    public void setBemerkung(String bemerkung) {
+        this.bemerkung = bemerkung;
     }
 
-    public String getBemerkungen() {
-        return bemerkungen;
+    public String getKommentar() {
+        return kommentar;
     }
 
-    public void setBemerkungen(String bemerkungen) {
-        this.bemerkungen = bemerkungen;
+    public void setKommentar(String kommentar) {
+        this.kommentar = kommentar;
     }
 }

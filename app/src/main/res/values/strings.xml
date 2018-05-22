@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">NotfallStats</string>
+    <string name="header_maske">Neuen Einsatz anlegen</string>
     <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
     <string name="hint_id">123456</string>
     <string name="hint_aabb">00</string>
     <string name="notarzt_abk">N</string>
     <string name="next">Weiter</string>
-    <string name="info_text_code_meldung">Bitte geben Sie den gemeldeten Einsatzcode ein</string>
+    <string name="info_text_code_meldung">Gemeldeter Einsatzcode</string>
     <string name="meldung">Gemeldeter Einsatzcode</string>
     <string name="meldung_code">10 21 N</string>
     <string name="meldung_frage">Verlief der Einsatz wie erwartet?</string>

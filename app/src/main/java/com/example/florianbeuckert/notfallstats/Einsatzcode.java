@@ -31,27 +31,27 @@ public class Einsatzcode {
     }
 
     public String getAAasString() {
-        if(aa > 9)
+        if (aa > 9)
             return "" + aa;
         else
             return "0" + aa;
     }
 
     public String getBBasString() {
-        if(bb > 9)
+        if (bb > 9)
             return "" + bb;
         else
             return "0" + bb;
     }
 
     public String getNasString() {
-        if(n)
+        if (n)
             return "N";
         else
             return "";
     }
 
     public String toString() {
-        return getAAasString() + getBBasString() + getNasString();
+        return getAAasString() + " " + getBBasString() + " " + getNasString();
     }
 }

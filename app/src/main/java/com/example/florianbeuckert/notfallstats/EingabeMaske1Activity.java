@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EingabeMaske1Activity extends AppCompatActivity {
 
@@ -16,15 +17,17 @@ public class EingabeMaske1Activity extends AppCompatActivity {
     private EditText editTextBB;
     private Button buttonNotarzt;
 
-    private String extra_ID;
+    private int extra_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eingabe_maske1);
 
+        getSupportActionBar().setTitle(R.string.header_maske);
+
         Intent i = getIntent();
-        extra_ID = i.getStringExtra("id");
+        extra_ID = i.getIntExtra("id", -1);
 
         editTextAA = (EditText) findViewById(R.id.editTextAA);
         editTextBB = (EditText) findViewById(R.id.editTextBB);
@@ -40,8 +43,31 @@ public class EingabeMaske1Activity extends AppCompatActivity {
     }
 
     public void next1Pressed(View v) {
-        // TODO: putExtra + Überprüfung ob gültiger code
+        String aa_string = editTextAA.getText().toString();
+        String bb_string = editTextBB.getText().toString();
+
+        int aa = -1;
+        int bb = -1;
+
+        try {
+            aa = Integer.parseInt(aa_string);
+            bb = Integer.parseInt(bb_string);
+        } catch (Exception e) {
+            Toast.makeText(this, "Bitte einen korrekten Code eingeben!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        boolean n = false;
+        if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
+            n = true;
+
         final Intent i = new Intent(this, EingabeMaske2Activity.class);
+
+        i.putExtra("id", extra_ID);
+        i.putExtra("aa", aa);
+        i.putExtra("bb", bb);
+        i.putExtra("n", n);
+
         startActivity(i);
     }
 }

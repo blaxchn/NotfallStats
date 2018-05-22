@@ -77,6 +77,6 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
         android:text="@string/info_text_code_korrektur"
-        android:textSize="16sp"/>
+        android:textSize="18sp"/>
 
 </RelativeLayout>
