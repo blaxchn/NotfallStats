@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NotfallStats</string>
+    <string name="app_name">Notfall Stats</string>
     <string name="header_maske">Neuen Einsatz anlegen</string>
     <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
     <string name="hint_id">123456</string>
