@@ -44,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.id.setText("" + d.getId());
         holder.datum.setText(d.getDatum().toString());
         holder.codeGemeldet.setText(d.getCodeGemeldet().toString());
-        holder.codeKorrekt.setText(d.getCodeRichtig().toString());
+        holder.codeKorrekt.setText(d.getCodeKorrekt().toString());
         holder.bemerkung.setText(d.getBemerkung());
         holder.kommentar.setText(d.getKommentar());
     }

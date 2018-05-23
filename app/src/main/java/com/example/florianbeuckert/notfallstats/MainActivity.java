@@ -15,7 +15,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MySQLiteHelper sqLiteHelper;
     private List<Datensatz> daten = new ArrayList<Datensatz>();
+
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sqLiteHelper = new MySQLiteHelper(this);
+        //sqLiteHelper.addDatensatz(new Datensatz(361, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
+        daten = sqLiteHelper.getAlleDatensaetze();
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -32,24 +38,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(myAdapter);
-
-        loadData();
     }
 
     public void fabPressed(View v) {
         final Intent i = new Intent(this, EingabeMaske0Activity.class);
         startActivity(i);
-    }
-
-    private void loadData() {
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten.add(new Datensatz(1234, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        myAdapter.notifyDataSetChanged();
     }
 }

@@ -47,7 +47,7 @@ public class EingabeMaske5Activity extends AppCompatActivity {
         datensatz.setDatum(new Date());
         datensatz.setCodeGemeldet(new Einsatzcode(extra_AA, extra_BB, extra_N));
         if (extra_AA_korrekt != -1)
-            datensatz.setCodeRichtig(new Einsatzcode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt));
+            datensatz.setCodeKorrekt(new Einsatzcode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt));
         datensatz.setBemerkung(extra_Bemerkung);
         datensatz.setKommentar(editText.getText().toString());
 
