@@ -7,9 +7,9 @@ public class Einsatzcode {
     boolean n;
 
     public Einsatzcode() {
-        aa = 99;
-        bb = 99;
-        n = true;
+        aa = -1;
+        bb = -1;
+        n = false;
     }
 
     public Einsatzcode(int aa, int bb, boolean n) {
@@ -52,6 +52,9 @@ public class Einsatzcode {
     }
 
     public String toString() {
-        return getAAasString() + " " + getBBasString() + " " + getNasString();
+        if (aa == -1)
+            return "---";
+        else
+            return getAAasString() + " " + getBBasString() + " " + getNasString();
     }
 }

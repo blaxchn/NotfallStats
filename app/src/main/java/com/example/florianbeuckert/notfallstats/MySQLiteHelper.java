@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
@@ -24,7 +22,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String[] COLUMNS = {ID, DATUM, CODE_GEMELDET, CODE_KORREKT, BEMERKUNG, KOMMENTAR};
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 8;
     private static final String DATABASE_NAME = "StatDB";
 
     public MySQLiteHelper(Context context) {
@@ -57,12 +55,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         ContentValues vals = new ContentValues();
         vals.put(ID, d.getId());
-        vals.put(DATUM, d.getDatum().toString());
+        vals.put(DATUM, d.getDatum());
         vals.put(CODE_GEMELDET, d.getCodeGemeldet().toString());
         if (d.getCodeKorrekt() != null)
             vals.put(CODE_KORREKT, d.getCodeKorrekt().toString());
-        vals.put(BEMERKUNG, d.getBemerkung());
-        vals.put(KOMMENTAR, d.getKommentar());
+        if (d.getBemerkung() != null)
+            vals.put(BEMERKUNG, d.getBemerkung());
+        if (d.getKommentar() != null)
+            vals.put(KOMMENTAR, d.getKommentar());
 
         db.insert(TABLE_STATS, null, vals);
         db.close();
@@ -71,15 +71,29 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public Datensatz getDatensatz(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_STATS, COLUMNS, " id = ?", new String[]{String.valueOf(id)}, null, null, null, null);
+        Cursor cursor = db.query(
+                TABLE_STATS, COLUMNS,
+                " id = ?", new String[]{String.valueOf(id)},
+                null,
+                null,
+                ID + " DESC",
+                null);
+
         if (cursor != null)
             cursor.moveToFirst();
 
         Datensatz d = new Datensatz();
+
         d.setId(Integer.parseInt(cursor.getString(0)));
-        d.setDatum(new Date());
-        d.setCodeGemeldet(new Einsatzcode(1, 1, false));
-        d.setCodeKorrekt(new Einsatzcode(2, 22, true));
+        d.setDatum(cursor.getString(1));
+        d.setCodeGemeldet(Datensatz.stringToEinsatzcode(cursor.getString(2)));
+
+        try {
+            d.setCodeKorrekt(Datensatz.stringToEinsatzcode(cursor.getString(3)));
+        } catch(Exception e) {
+            d.setCodeKorrekt(new Einsatzcode());
+        }
+
         d.setBemerkung(cursor.getString(4));
         d.setKommentar(cursor.getString(5));
 
@@ -91,21 +105,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Datensatz d;
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_STATS;
+        String query = "SELECT * FROM " + TABLE_STATS + " ORDER BY " + ID + " DESC";
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
                 d = new Datensatz();
+
                 d.setId(Integer.parseInt(cursor.getString(0)));
-                d.setDatum(new Date());
-                d.setCodeGemeldet(new Einsatzcode(1, 1, false));
-                d.setCodeKorrekt(new Einsatzcode(2, 22, true));
+                d.setDatum(cursor.getString(1));
+                d.setCodeGemeldet(Datensatz.stringToEinsatzcode(cursor.getString(2)));
+
+                try {
+                    d.setCodeKorrekt(Datensatz.stringToEinsatzcode(cursor.getString(3)));
+                } catch(Exception e) {
+                    d.setCodeKorrekt(new Einsatzcode());
+                }
+
                 d.setBemerkung(cursor.getString(4));
                 d.setKommentar(cursor.getString(5));
 
                 ld.add(d);
-                System.out.println("--------------------jioooooooooo-----------------------------");
             } while (cursor.moveToNext());
         }
         return ld;

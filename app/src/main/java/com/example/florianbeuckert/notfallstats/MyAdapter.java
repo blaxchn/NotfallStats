@@ -42,7 +42,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Datensatz d = daten.get(position);
         holder.id.setText("" + d.getId());
-        holder.datum.setText(d.getDatum().toString());
+        holder.datum.setText(d.getDatum());
         holder.codeGemeldet.setText(d.getCodeGemeldet().toString());
         holder.codeKorrekt.setText(d.getCodeKorrekt().toString());
         holder.bemerkung.setText(d.getBemerkung());

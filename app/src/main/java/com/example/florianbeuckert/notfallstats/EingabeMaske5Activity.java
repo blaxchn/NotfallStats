@@ -3,6 +3,7 @@ package com.example.florianbeuckert.notfallstats;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
 
@@ -42,22 +43,30 @@ public class EingabeMaske5Activity extends AppCompatActivity {
     }
 
     public void donePressed(View v) {
+        String datum = DateFormat.format("dd. MMM yy", new Date()).toString();
+        String kommentar = editText.getText().toString().trim();
+
         Datensatz datensatz = new Datensatz();
+
         datensatz.setId(extra_ID);
-        datensatz.setDatum(new Date());
+        datensatz.setDatum(datum);
         datensatz.setCodeGemeldet(new Einsatzcode(extra_AA, extra_BB, extra_N));
+
         if (extra_AA_korrekt != -1)
             datensatz.setCodeKorrekt(new Einsatzcode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt));
-        datensatz.setBemerkung(extra_Bemerkung);
-        datensatz.setKommentar(editText.getText().toString());
 
-        String s = "";
-        s += "id=" + extra_ID + "\n";
-        s += "meldung=" + new Einsatzcode(extra_AA, extra_BB, extra_N) + "\n";
-        s += "bemerkung=" + extra_Bemerkung + "\n";
-        s += "korrekt=" + new Einsatzcode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt) + "\n";
-        s += "kommentar=" + editText.getText().toString() + "\n";
-        System.out.println(s);
+        if (extra_Bemerkung != null)
+            datensatz.setBemerkung(extra_Bemerkung);
+        else
+            datensatz.setBemerkung("---");
+
+        if (kommentar == "")
+            datensatz.setKommentar(kommentar);
+        else
+            datensatz.setKommentar("---");
+
+        MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
+        sqLiteHelper.addDatensatz(datensatz);
 
         final Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

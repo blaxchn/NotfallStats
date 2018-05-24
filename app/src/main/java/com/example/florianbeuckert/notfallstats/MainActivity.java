@@ -26,18 +26,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sqLiteHelper = new MySQLiteHelper(this);
-        //sqLiteHelper.addDatensatz(new Datensatz(361, new Date(), new Einsatzcode(20, 11, false), new Einsatzcode(10, 10, true), "abcdefgh", "kein kommentar"));
-        daten = sqLiteHelper.getAlleDatensaetze();
-
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
+        sqLiteHelper = new MySQLiteHelper(getApplicationContext());
+        daten = sqLiteHelper.getAlleDatensaetze();
         myAdapter = new MyAdapter(daten);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(myAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        daten = sqLiteHelper.getAlleDatensaetze();
+
+        myAdapter.notifyDataSetChanged();
+        System.out.println("MainActivity was resumed");
     }
 
     public void fabPressed(View v) {

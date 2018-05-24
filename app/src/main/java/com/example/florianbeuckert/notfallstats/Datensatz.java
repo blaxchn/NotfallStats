@@ -5,7 +5,7 @@ import java.util.Date;
 public class Datensatz {
 
     private int id;
-    private Date datum;
+    private String datum;
     private Einsatzcode codeGemeldet;
     private Einsatzcode codeKorrekt;
     private String bemerkung;
@@ -14,7 +14,7 @@ public class Datensatz {
     public Datensatz() {
     }
 
-    public Datensatz(int id, Date datum, Einsatzcode codeGemeldet, Einsatzcode codeKorrekt, String bemerkung, String kommentar) {
+    public Datensatz(int id, String datum, Einsatzcode codeGemeldet, Einsatzcode codeKorrekt, String bemerkung, String kommentar) {
         this.id = id;
         this.datum = datum;
         this.codeGemeldet = codeGemeldet;
@@ -40,6 +40,21 @@ public class Datensatz {
         return -1;
     }
 
+    public static Einsatzcode stringToEinsatzcode(String s) {
+        try {
+            int aa = Integer.parseInt(s.substring(0, 2));
+            int bb = Integer.parseInt(s.substring(3, 5));
+
+            boolean n = false;
+            if (s.length() == 7)
+                n = true;
+
+            return new Einsatzcode(aa, bb, n);
+        } catch(Exception e) {
+            return new Einsatzcode();
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -48,11 +63,11 @@ public class Datensatz {
         this.id = id;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 

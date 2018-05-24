@@ -18,6 +18,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:text="@string/hint_id"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 
     <TextView
@@ -27,6 +28,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text="01.01.2020"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -44,6 +46,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/meldung_code"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -55,6 +58,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/meldung_code"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -67,14 +71,15 @@
         android:layout_below="@id/row_linear_layout"
         android:text="Bemerkung: noch entfernen"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/row_kommentar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/row_bemerkung"
-        android:textSize="16sp"
-        android:text="Kommentarfeld: noch entfernen"/>
+        android:text="Kommentarfeld: noch entfernen"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
 
 </RelativeLayout>
