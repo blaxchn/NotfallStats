@@ -53,7 +53,7 @@ public class Einsatzcode {
 
     public String toString() {
         if (aa == -1)
-            return "---";
+            return "";
         else
             return getAAasString() + " " + getBBasString() + " " + getNasString();
     }

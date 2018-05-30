@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
+        android:background="#e0e0e0"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -39,8 +40,8 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="Korrekt gemeldet"
-                android:textSize="10sp" />
+                android:text="@string/stat_korrekt"
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -76,8 +77,8 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="Prio richtig"
-                android:textSize="10sp" />
+                android:text="@string/stat_prio_korrekt"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -114,8 +115,8 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="Prio zu hoch"
-                android:textSize="10sp" />
+                android:text="@string/stat_prio_zu_hoch"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -152,8 +153,8 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="Prio zu niedrig"
-                android:textSize="10sp" />
+                android:text="@string/stat_prio_zu_niedrig"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 

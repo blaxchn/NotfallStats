@@ -12,12 +12,22 @@
     android:paddingTop="8dp">
 
     <TextView
-        android:id="@+id/row_id"
+        android:id="@+id/row_id_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/hint_id"
+        android:layout_marginStart="8dp"
+        android:text="@string/info_id"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/row_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_toRightOf="@id/row_id_info"
         android:textSize="18sp" />
 
     <TextView
@@ -26,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:text="01.01.2020"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -43,9 +52,14 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/meldung_code"
-            android:textColor="@color/colorPrimary"
             android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/row_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/check"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/row_code_korrekt"
@@ -54,7 +68,6 @@
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/meldung_code"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp" />
 
@@ -65,7 +78,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/row_linear_layout"
-        android:text="Bemerkung: noch entfernen"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp" />
 
@@ -74,7 +86,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/row_bemerkung"
-        android:text="Kommentarfeld: noch entfernen"
         android:textSize="14sp" />
 
 </RelativeLayout>

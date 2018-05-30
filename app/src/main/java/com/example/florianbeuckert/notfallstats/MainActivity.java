@@ -41,11 +41,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         daten = sqLiteHelper.getAlleDatensaetze();
-
         myAdapter.notifyDataSetChanged();
-        System.out.println("MainActivity was resumed");
     }
 
     public void fabPressed(View v) {

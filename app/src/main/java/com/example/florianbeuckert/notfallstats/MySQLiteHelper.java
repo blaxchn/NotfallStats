@@ -59,10 +59,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         vals.put(CODE_GEMELDET, d.getCodeGemeldet().toString());
         if (d.getCodeKorrekt() != null)
             vals.put(CODE_KORREKT, d.getCodeKorrekt().toString());
-        if (d.getBemerkung() != null)
-            vals.put(BEMERKUNG, d.getBemerkung());
-        if (d.getKommentar() != null)
-            vals.put(KOMMENTAR, d.getKommentar());
+        vals.put(BEMERKUNG, d.getBemerkung());
+        vals.put(KOMMENTAR, d.getKommentar());
 
         db.insert(TABLE_STATS, null, vals);
         db.close();

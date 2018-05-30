@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Notfall Stats</string>
+    <string name="stat_korrekt">korrekt</string>
+    <string name="stat_prio_korrekt">Prio korrekt</string>
+    <string name="stat_prio_zu_niedrig">Prio zu niedrig</string>
+    <string name="stat_prio_zu_hoch">Prio zu hoch</string>
+    <string name="info_id">ID</string>
     <string name="header_maske">Neuen Einsatz anlegen</string>
     <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
     <string name="hint_id">123456</string>
@@ -8,7 +13,6 @@
     <string name="next">Weiter</string>
     <string name="info_text_code_meldung">Gemeldeter Einsatzcode</string>
     <string name="meldung">Gemeldeter Einsatzcode</string>
-    <string name="meldung_code">10 21 N</string>
     <string name="meldung_frage">Verlief der Einsatz wie erwartet?</string>
     <string name="meldung_korrekt">Ja</string>
     <string name="meldung_fehlerhaft">Nein</string>

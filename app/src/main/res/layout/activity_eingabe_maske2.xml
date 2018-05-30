@@ -28,7 +28,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewMeldung"
         android:padding="8dp"
-        android:text="@string/meldung_code"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="36sp" />

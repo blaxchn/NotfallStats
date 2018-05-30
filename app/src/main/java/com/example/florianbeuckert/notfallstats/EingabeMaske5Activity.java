@@ -43,13 +43,10 @@ public class EingabeMaske5Activity extends AppCompatActivity {
     }
 
     public void donePressed(View v) {
-        String datum = DateFormat.format("dd. MMM yy", new Date()).toString();
-        String kommentar = editText.getText().toString().trim();
-
         Datensatz datensatz = new Datensatz();
 
         datensatz.setId(extra_ID);
-        datensatz.setDatum(datum);
+        datensatz.setDatum(DateFormat.format("dd. MMM yy", new Date()).toString());
         datensatz.setCodeGemeldet(new Einsatzcode(extra_AA, extra_BB, extra_N));
 
         if (extra_AA_korrekt != -1)
@@ -58,12 +55,14 @@ public class EingabeMaske5Activity extends AppCompatActivity {
         if (extra_Bemerkung != null)
             datensatz.setBemerkung(extra_Bemerkung);
         else
-            datensatz.setBemerkung("---");
+            datensatz.setBemerkung("(keine Bemerkung)");
 
-        if (kommentar == "")
+        String kommentar = editText.getText().toString().trim();
+        System.out.println("k:(" + kommentar + ")");
+        if (kommentar != "")
             datensatz.setKommentar(kommentar);
         else
-            datensatz.setKommentar("---");
+            datensatz.setKommentar("(kein Kommentar)");
 
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
         sqLiteHelper.addDatensatz(datensatz);

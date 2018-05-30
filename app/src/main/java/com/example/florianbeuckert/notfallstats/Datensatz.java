@@ -23,13 +23,13 @@ public class Datensatz {
         this.kommentar = kommentar;
     }
 
-    private static final int STAT_KORREKT = 0;
-    private static final int STAT_PRIO_KORREKT = 1;
-    private static final int STAT_PRIO_ZU_HOCH = 2;
-    private static final int STAT_PRIO_ZU_NIEDRIG = 3;
+    public static final int STAT_KORREKT = 0;
+    public static final int STAT_PRIO_KORREKT = 1;
+    public static final int STAT_PRIO_ZU_HOCH = 2;
+    public static final int STAT_PRIO_ZU_NIEDRIG = 3;
 
     public int evaluateStat() {
-        if (codeKorrekt == null)
+        if (codeKorrekt.getAA() == -1)
             return STAT_KORREKT;
         if (codeGemeldet.getAA() == codeKorrekt.getAA())
             return STAT_PRIO_KORREKT;
