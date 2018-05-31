@@ -61,6 +61,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             case Datensatz.STAT_PRIO_ZU_NIEDRIG:
                 holder.img.setImageResource(R.drawable.arrow_top_right);
                 break;
+            case Datensatz.STAT_NICHT_BESTIMMBAR:
+                holder.img.setImageResource(R.drawable.alert);
+                break;
         }
 
         holder.codeGemeldet.setText(d.getCodeGemeldet().toString());

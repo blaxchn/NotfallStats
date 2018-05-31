@@ -39,4 +39,6 @@
     <string name="info_text_code_korrektur">Bitte geben Sie den korrekten Einsatzcode ein</string>
     <string name="info_text_kommentare">Zusätliche Kommentare</string>
     <string name="done">Fertig</string>
+    <string name="keine_bemerkung">(keine Bemerkungen)</string>
+    <string name="kein_kommentar">(kein Kommentar)</string>
 </resources>

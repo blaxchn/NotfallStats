@@ -1,7 +1,5 @@
 package com.example.florianbeuckert.notfallstats;
 
-import java.util.Date;
-
 public class Datensatz {
 
     private int id;
@@ -27,10 +25,13 @@ public class Datensatz {
     public static final int STAT_PRIO_KORREKT = 1;
     public static final int STAT_PRIO_ZU_HOCH = 2;
     public static final int STAT_PRIO_ZU_NIEDRIG = 3;
+    public static final int STAT_NICHT_BESTIMMBAR = 4;
 
     public int evaluateStat() {
-        if (codeKorrekt.getAA() == -1)
+        if (codeKorrekt.getAA() == -1 && bemerkung.equals("(keine Bemerkungen)"))
             return STAT_KORREKT;
+        if (codeKorrekt.getAA() == -1)
+            return STAT_NICHT_BESTIMMBAR;
         if (codeGemeldet.getAA() == codeKorrekt.getAA())
             return STAT_PRIO_KORREKT;
         if (codeGemeldet.getAA() > codeKorrekt.getAA())

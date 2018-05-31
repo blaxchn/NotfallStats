@@ -55,14 +55,13 @@ public class EingabeMaske5Activity extends AppCompatActivity {
         if (extra_Bemerkung != null)
             datensatz.setBemerkung(extra_Bemerkung);
         else
-            datensatz.setBemerkung("(keine Bemerkung)");
+            datensatz.setBemerkung(getString(R.string.keine_bemerkung));
 
         String kommentar = editText.getText().toString().trim();
-        System.out.println("k:(" + kommentar + ")");
-        if (kommentar != "")
+        if (!kommentar.equals(""))
             datensatz.setKommentar(kommentar);
         else
-            datensatz.setKommentar("(kein Kommentar)");
+            datensatz.setKommentar(getString(R.string.kein_kommentar));
 
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
         sqLiteHelper.addDatensatz(datensatz);
