@@ -4,7 +4,7 @@
     <string name="stat_prio_korrekt">Prio korrekt</string>
     <string name="stat_prio_zu_niedrig">Prio zu niedrig</string>
     <string name="stat_prio_zu_hoch">Prio zu hoch</string>
-    <string name="info_id">ID</string>
+    <string name="info_id">ID:</string>
     <string name="header_maske">Neuen Einsatz anlegen</string>
     <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
     <string name="hint_id">123456</string>
