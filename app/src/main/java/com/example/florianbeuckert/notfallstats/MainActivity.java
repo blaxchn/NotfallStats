@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.content.Intent;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private MySQLiteHelper sqLiteHelper;
     private List<Datensatz> daten = new ArrayList<Datensatz>();
 
+    private TextView tvStatKorrekt, tvStatPrioKorrekt, tvStatPrioZuHoch, tvStatPrioZuNiedrig;
+
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
@@ -26,16 +31,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tvStatKorrekt = (TextView) findViewById(R.id.tvStatKorrekt);
+        tvStatPrioKorrekt = (TextView) findViewById(R.id.tvStatPrioKorrekt);
+        tvStatPrioZuHoch = (TextView) findViewById(R.id.tvStatPrioZuHoch);
+        tvStatPrioZuNiedrig = (TextView) findViewById(R.id.tvStatPrioZuNiedrig);
+
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         sqLiteHelper = new MySQLiteHelper(getApplicationContext());
         daten = sqLiteHelper.getAlleDatensaetze();
+
         myAdapter = new MyAdapter(daten);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(myAdapter);
+
+        updateStatBar(daten);
     }
 
     @Override
@@ -43,10 +58,30 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         daten = sqLiteHelper.getAlleDatensaetze();
         myAdapter.notifyDataSetChanged();
+        updateStatBar(daten);
     }
 
     public void fabPressed(View v) {
         final Intent i = new Intent(this, EingabeMaske0Activity.class);
         startActivity(i);
+    }
+
+    private void updateStatBar(List<Datensatz> daten) {
+        int[] statCounter = new int[]{0, 0, 0, 0, 0};
+
+        for (Datensatz d : daten) {
+            statCounter[d.evaluateStat()]++;
+        }
+
+        int totalSize = daten.size();
+        int[] stats = new int[4];
+        for (int i = 0; i < stats.length; i++) {
+            stats[i] = (100 * statCounter[i]) / totalSize;
+        }
+
+        tvStatKorrekt.setText(stats[0] + "%");
+        tvStatPrioKorrekt.setText(stats[1] + "%");
+        tvStatPrioZuHoch.setText(stats[2] + "%");
+        tvStatPrioZuNiedrig.setText(stats[3] + "%");
     }
 }

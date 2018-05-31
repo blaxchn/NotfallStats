@@ -34,9 +34,9 @@ public class Datensatz {
             return STAT_NICHT_BESTIMMBAR;
         if (codeGemeldet.getAA() == codeKorrekt.getAA())
             return STAT_PRIO_KORREKT;
-        if (codeGemeldet.getAA() > codeKorrekt.getAA())
-            return STAT_PRIO_ZU_HOCH;
         if (codeGemeldet.getAA() < codeKorrekt.getAA())
+            return STAT_PRIO_ZU_HOCH;
+        if (codeGemeldet.getAA() > codeKorrekt.getAA())
             return STAT_PRIO_ZU_NIEDRIG;
         return -1;
     }
