@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EingabeMaske5Activity">
+    tools:context=".Activities.EingabeMaske5Activity">
 
     <EditText
         android:id="@+id/editTextKommentar"
@@ -17,19 +17,18 @@
         android:maxLength="60"
         android:maxLines="1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
         android:onClick="donePressed"
-        android:text="@string/done"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp" />
+        android:scaleType="fitXY"
+        android:src="@drawable/chevron_right" />
 
     <TextView
         android:id="@+id/textView2"

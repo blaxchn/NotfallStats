@@ -1,10 +1,13 @@
-package com.example.florianbeuckert.notfallstats;
+package com.example.florianbeuckert.notfallstats.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.florianbeuckert.notfallstats.Data.Datensatz;
+import com.example.florianbeuckert.notfallstats.Data.Einsatzcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +66,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         vals.put(KOMMENTAR, d.getKommentar());
 
         db.insert(TABLE_STATS, null, vals);
+        db.close();
+    }
+
+    public void deleteDatensatz(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_STATS, ID + "=" + id, null);
         db.close();
     }
 

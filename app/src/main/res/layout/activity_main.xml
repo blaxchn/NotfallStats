@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#eeeeee"
+    tools:context=".Activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/stats"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
-        android:background="#eeeeee"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -165,7 +162,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/stats"
-        android:padding="8dp"
+        android:layout_margin="4dp"
+        android:background="#ffffff"
         android:scrollbars="vertical" />
 
     <android.support.design.widget.FloatingActionButton

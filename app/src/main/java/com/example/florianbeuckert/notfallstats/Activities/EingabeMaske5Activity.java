@@ -1,4 +1,4 @@
-package com.example.florianbeuckert.notfallstats;
+package com.example.florianbeuckert.notfallstats.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.florianbeuckert.notfallstats.Data.Datensatz;
+import com.example.florianbeuckert.notfallstats.Data.Einsatzcode;
+import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
+import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.Date;
 
@@ -65,6 +71,8 @@ public class EingabeMaske5Activity extends AppCompatActivity {
 
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
         sqLiteHelper.addDatensatz(datensatz);
+
+        Toast.makeText(getApplicationContext(), "Neuer Eintrag (ID: " + extra_ID + ") wurde angelegt", Toast.LENGTH_LONG).show();
 
         final Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

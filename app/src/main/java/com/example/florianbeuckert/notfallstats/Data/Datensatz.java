@@ -1,4 +1,4 @@
-package com.example.florianbeuckert.notfallstats;
+package com.example.florianbeuckert.notfallstats.Data;
 
 public class Datensatz {
 

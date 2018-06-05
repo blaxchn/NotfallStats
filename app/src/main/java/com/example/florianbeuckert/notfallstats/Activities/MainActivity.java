@@ -1,4 +1,4 @@
-package com.example.florianbeuckert.notfallstats;
+package com.example.florianbeuckert.notfallstats.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +10,12 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.florianbeuckert.notfallstats.Data.Datensatz;
+import com.example.florianbeuckert.notfallstats.Data.MyAdapter;
+import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
+import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(myAdapter);
+        // TODO delete funktion
 
         updateStatBar(daten);
     }

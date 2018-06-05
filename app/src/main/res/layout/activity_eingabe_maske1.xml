@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EingabeMaske1Activity">
+    tools:context=".Activities.EingabeMaske1Activity">
 
     <LinearLayout
         android:id="@+id/linearLayoutEinsatzcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
+        android:layout_margin="8dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -26,9 +26,9 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="center"
-            android:textSize="36sp"
             android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorDeactivated"/>
+            android:textColorHint="@color/colorDeactivated"
+            android:textSize="36sp" />
 
         <EditText
             android:id="@+id/editTextBB"
@@ -39,9 +39,9 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAlignment="center"
-            android:textSize="36sp"
             android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorDeactivated"/>
+            android:textColorHint="@color/colorDeactivated"
+            android:textSize="36sp" />
 
         <Button
             android:id="@+id/buttonNotarzt"
@@ -55,19 +55,18 @@
             android:textSize="36sp" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnNext1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
-        android:text="@string/next"
         android:onClick="next1Pressed"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp" />
+        android:scaleType="fitXY"
+        android:src="@drawable/chevron_right" />
 
     <TextView
         android:id="@+id/textViewInfoTextCodeMeldung"
@@ -77,6 +76,6 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
         android:text="@string/info_text_code_meldung"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
 </RelativeLayout>
