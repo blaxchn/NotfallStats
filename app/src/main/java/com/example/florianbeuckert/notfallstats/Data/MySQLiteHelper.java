@@ -25,7 +25,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String[] COLUMNS = {ID, DATUM, CODE_GEMELDET, CODE_KORREKT, BEMERKUNG, KOMMENTAR};
 
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
     private static final String DATABASE_NAME = "StatDB";
 
     public MySQLiteHelper(Context context) {

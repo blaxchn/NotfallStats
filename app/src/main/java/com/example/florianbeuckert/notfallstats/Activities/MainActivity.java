@@ -77,14 +77,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         int totalSize = daten.size();
-        int[] stats = new int[4];
-        for (int i = 0; i < stats.length; i++) {
-            stats[i] = (100 * statCounter[i]) / totalSize;
-        }
+        if (totalSize > 0) {
+            int[] stats = new int[4];
+            for (int i = 0; i < stats.length; i++) {
+                stats[i] = (100 * statCounter[i]) / totalSize;
+            }
 
-        tvStatKorrekt.setText(stats[0] + "%");
-        tvStatPrioKorrekt.setText(stats[1] + "%");
-        tvStatPrioZuHoch.setText(stats[2] + "%");
-        tvStatPrioZuNiedrig.setText(stats[3] + "%");
+            tvStatKorrekt.setText(stats[0] + "%");
+            tvStatPrioKorrekt.setText(stats[1] + "%");
+            tvStatPrioZuHoch.setText(stats[2] + "%");
+            tvStatPrioZuNiedrig.setText(stats[3] + "%");
+        }
     }
 }
