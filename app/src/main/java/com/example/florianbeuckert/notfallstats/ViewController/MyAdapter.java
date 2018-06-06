@@ -1,12 +1,16 @@
-package com.example.florianbeuckert.notfallstats.Data;
+package com.example.florianbeuckert.notfallstats.ViewController;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.florianbeuckert.notfallstats.Data.Datensatz;
 import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.List;
@@ -18,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private TextView id, datum, codeGemeldet, codeKorrekt, bemerkung, kommentar;
         private ImageView img;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(final View itemView) {
             super(itemView);
 
             id = (TextView) itemView.findViewById(R.id.row_id);
@@ -28,6 +32,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             bemerkung = (TextView) itemView.findViewById(R.id.row_bemerkung);
             kommentar = (TextView) itemView.findViewById(R.id.row_kommentar);
             img = (ImageView) itemView.findViewById(R.id.row_image);
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+                    builder.setMessage("Eintrag " + id.getText() + " wirklich löschen?");
+
+                    builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+                    builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {}
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    builder.show();
+
+                    return true;
+                }
+            });
         }
     }
 

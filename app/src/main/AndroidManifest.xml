@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".ViewController.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.EingabeMaske1Activity" />
-        <activity android:name=".Activities.EingabeMaske0Activity" />
-        <activity android:name=".Activities.EingabeMaske2Activity" />
-        <activity android:name=".Activities.EingabeMaske4Activity" />
-        <activity android:name=".Activities.EingabeMaske3Activity" />
-        <activity android:name=".Activities.EingabeMaske5Activity"></activity>
+        <activity android:name=".ViewController.EingabeMaske1Activity" />
+        <activity android:name=".ViewController.EingabeMaske0Activity" />
+        <activity android:name=".ViewController.EingabeMaske2Activity" />
+        <activity android:name=".ViewController.EingabeMaske4Activity" />
+        <activity android:name=".ViewController.EingabeMaske3Activity" />
+        <activity android:name=".ViewController.EingabeMaske5Activity"></activity>
     </application>
 
 </manifest>

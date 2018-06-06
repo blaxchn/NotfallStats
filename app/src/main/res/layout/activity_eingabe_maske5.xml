@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.EingabeMaske5Activity">
+    tools:context=".ViewController.EingabeMaske5Activity">
 
     <EditText
         android:id="@+id/editTextKommentar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:inputType="textMultiLine"
         android:lines="1"
         android:maxLength="60"
@@ -36,7 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editTextKommentar"
         android:layout_centerHorizontal="true"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/info_text_kommentare"
         android:textSize="18sp" />
 </RelativeLayout>

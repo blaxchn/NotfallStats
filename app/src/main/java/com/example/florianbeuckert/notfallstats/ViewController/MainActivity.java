@@ -1,4 +1,4 @@
-package com.example.florianbeuckert.notfallstats.Activities;
+package com.example.florianbeuckert.notfallstats.ViewController;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.example.florianbeuckert.notfallstats.Data.Datensatz;
-import com.example.florianbeuckert.notfallstats.Data.MyAdapter;
 import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
 import com.example.florianbeuckert.notfallstats.R;
 
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(myAdapter);
-        // TODO delete funktion
 
         updateStatBar(daten);
     }
@@ -62,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         daten = sqLiteHelper.getAlleDatensaetze();
         myAdapter.notifyDataSetChanged();
         updateStatBar(daten);
+        System.out.println("\nR E S U M E\n");
     }
 
     public void fabPressed(View v) {

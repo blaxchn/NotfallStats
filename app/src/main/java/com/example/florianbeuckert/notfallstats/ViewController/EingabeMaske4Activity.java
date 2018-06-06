@@ -1,4 +1,4 @@
-package com.example.florianbeuckert.notfallstats.Activities;
+package com.example.florianbeuckert.notfallstats.ViewController;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
