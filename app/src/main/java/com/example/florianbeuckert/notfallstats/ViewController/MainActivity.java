@@ -10,7 +10,7 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.example.florianbeuckert.notfallstats.Data.Datensatz;
+import com.example.florianbeuckert.notfallstats.Data.Dataset;
 import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
 import com.example.florianbeuckert.notfallstats.R;
 
@@ -20,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private MySQLiteHelper sqLiteHelper;
-    private List<Datensatz> daten = new ArrayList<Datensatz>();
+    private List<Dataset> daten = new ArrayList<Dataset>();
 
     private TextView tvStatKorrekt, tvStatPrioKorrekt, tvStatPrioZuHoch, tvStatPrioZuNiedrig;
 
@@ -54,23 +54,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fabPressed(View v) {
-        final Intent i = new Intent(this, EingabeMaske0Activity.class);
+        final Intent i = new Intent(this, Form0_idActivity.class);
         startActivity(i);
     }
 
     public void loescheEintrag(int id) {
-        sqLiteHelper.deleteDatensatz(id);
+        sqLiteHelper.deleteDataset(id);
         aktualisieren();
     }
 
     private void aktualisieren() {
-        daten = sqLiteHelper.getAlleDatensaetze();
+        daten = sqLiteHelper.getAllDatasets();
         myAdapter = new MyAdapter(daten, this);
         recyclerView.setAdapter(myAdapter);
 
         int[] statCounter = new int[]{0, 0, 0, 0, 0};
 
-        for (Datensatz d : daten) {
+        for (Dataset d : daten) {
             statCounter[d.evaluateStat()]++;
         }
 

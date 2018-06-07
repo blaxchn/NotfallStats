@@ -1,6 +1,7 @@
 package com.example.florianbeuckert.notfallstats.ViewController;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,46 +11,38 @@ import android.widget.Toast;
 
 import com.example.florianbeuckert.notfallstats.R;
 
-public class EingabeMaske4Activity extends AppCompatActivity {
+public class Form1_codeReportedActivity extends AppCompatActivity {
 
     private EditText editTextAA;
     private EditText editTextBB;
     private Button buttonNotarzt;
 
     private int extra_ID;
-    private int extra_AA;
-    private int extra_BB;
-    private boolean extra_N;
-    private String extra_Bemerkung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eingabe_maske4);
+        setContentView(R.layout.activity_form1);
 
         getSupportActionBar().setTitle(R.string.header_maske);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
-        extra_AA = i.getIntExtra("aa", -1);
-        extra_BB = i.getIntExtra("bb", -1);
-        extra_N = i.getBooleanExtra("n", false);
-        extra_Bemerkung = i.getStringExtra("bemerkung");
 
-
-        editTextAA = (EditText) findViewById(R.id.editTextAA2);
-        editTextBB = (EditText) findViewById(R.id.editTextBB2);
-        buttonNotarzt = (Button) findViewById(R.id.buttonNotarzt2);
+        editTextAA = (EditText) findViewById(R.id.editTextAA);
+        editTextBB = (EditText) findViewById(R.id.editTextBB);
+        buttonNotarzt = (Button) findViewById(R.id.buttonNotarzt);
+        buttonNotarzt.setTextColor(Color.LTGRAY);
     }
 
-    public void buttonNotarzt2Pressed(View v) {
+    public void buttonNotarztPressed(View v) {
         if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
             buttonNotarzt.setTextColor(getResources().getColor(R.color.colorDeactivated));
         else
             buttonNotarzt.setTextColor(getResources().getColor(R.color.colorPrimary));
     }
 
-    public void next4Pressed(View v) {
+    public void next1Pressed(View v) {
         String aa_string = editTextAA.getText().toString();
         String bb_string = editTextBB.getText().toString();
 
@@ -68,16 +61,12 @@ public class EingabeMaske4Activity extends AppCompatActivity {
         if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
             n = true;
 
-        final Intent i = new Intent(this, EingabeMaske5Activity.class);
+        final Intent i = new Intent(this, Form2_codeEvaluateActivity.class);
 
         i.putExtra("id", extra_ID);
-        i.putExtra("aa", extra_AA);
-        i.putExtra("bb", extra_BB);
-        i.putExtra("n", extra_N);
-        i.putExtra("bemerkung", extra_Bemerkung);
-        i.putExtra("aa_korrekt", aa);
-        i.putExtra("bb_korrekt", bb);
-        i.putExtra("n_korrekt", n);
+        i.putExtra("aa", aa);
+        i.putExtra("bb", bb);
+        i.putExtra("n", n);
 
         startActivity(i);
     }

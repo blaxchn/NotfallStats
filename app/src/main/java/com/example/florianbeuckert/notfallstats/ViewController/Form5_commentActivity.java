@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.florianbeuckert.notfallstats.Data.Datensatz;
-import com.example.florianbeuckert.notfallstats.Data.Einsatzcode;
+import com.example.florianbeuckert.notfallstats.Data.Dataset;
+import com.example.florianbeuckert.notfallstats.Data.EmergencyCode;
 import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
 import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.Date;
 
-public class EingabeMaske5Activity extends AppCompatActivity {
+public class Form5_commentActivity extends AppCompatActivity {
 
     private EditText editText;
 
@@ -31,7 +31,7 @@ public class EingabeMaske5Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eingabe_maske5);
+        setContentView(R.layout.activity_form5);
 
         getSupportActionBar().setTitle(R.string.header_maske);
 
@@ -49,28 +49,28 @@ public class EingabeMaske5Activity extends AppCompatActivity {
     }
 
     public void donePressed(View v) {
-        Datensatz datensatz = new Datensatz();
+        Dataset datensatz = new Dataset();
 
         datensatz.setId(extra_ID);
-        datensatz.setDatum(DateFormat.format("dd. MMM yy", new Date()).toString());
-        datensatz.setCodeGemeldet(new Einsatzcode(extra_AA, extra_BB, extra_N));
+        datensatz.setDate(DateFormat.format("dd. MMM yy", new Date()).toString());
+        datensatz.setCodeReported(new EmergencyCode(extra_AA, extra_BB, extra_N));
 
         if (extra_AA_korrekt != -1)
-            datensatz.setCodeKorrekt(new Einsatzcode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt));
+            datensatz.setCodeActual(new EmergencyCode(extra_AA_korrekt, extra_BB_korrekt, extra_N_korrekt));
 
         if (extra_Bemerkung != null)
-            datensatz.setBemerkung(extra_Bemerkung);
+            datensatz.setAnnotation(extra_Bemerkung);
         else
-            datensatz.setBemerkung(getString(R.string.keine_bemerkung));
+            datensatz.setAnnotation(getString(R.string.keine_bemerkung));
 
         String kommentar = editText.getText().toString().trim();
         if (!kommentar.equals(""))
-            datensatz.setKommentar(kommentar);
+            datensatz.setComment(kommentar);
         else
-            datensatz.setKommentar(getString(R.string.kein_kommentar));
+            datensatz.setComment(getString(R.string.kein_kommentar));
 
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
-        sqLiteHelper.addDatensatz(datensatz);
+        sqLiteHelper.addDataset(datensatz);
 
         Toast.makeText(getApplicationContext(), "Neuer Eintrag (ID: " + extra_ID + ") wurde angelegt", Toast.LENGTH_LONG).show();
 

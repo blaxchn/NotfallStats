@@ -9,14 +9,14 @@ import android.widget.Toast;
 
 import com.example.florianbeuckert.notfallstats.R;
 
-public class EingabeMaske0Activity extends AppCompatActivity {
+public class Form0_idActivity extends AppCompatActivity {
 
     private EditText editTextID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eingabe_maske0);
+        setContentView(R.layout.activity_form0);
 
         getSupportActionBar().setTitle(R.string.header_maske);
 
@@ -39,7 +39,7 @@ public class EingabeMaske0Activity extends AppCompatActivity {
             return;
         }
 
-        final Intent i = new Intent(this, EingabeMaske1Activity.class);
+        final Intent i = new Intent(this, Form1_codeReportedActivity.class);
 
         i.putExtra("id", id);
 

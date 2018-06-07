@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.florianbeuckert.notfallstats.Data.Datensatz;
-import com.example.florianbeuckert.notfallstats.Data.Einsatzcode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +14,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String TABLE_STATS = "stats";
 
     private static final String ID = "id";
-    private static final String DATUM = "datum";
-    private static final String CODE_GEMELDET = "codeg";
-    private static final String CODE_KORREKT = "codek";
-    private static final String BEMERKUNG = "bemerkung";
-    private static final String KOMMENTAR = "kommentar";
+    private static final String DATE = "datum";
+    private static final String CODE_REPORTED = "codeg";
+    private static final String CODE_ACTUAL = "codek";
+    private static final String ANNOTATION = "bemerkung";
+    private static final String COMMENT = "kommentar";
 
-    private static final String[] COLUMNS = {ID, DATUM, CODE_GEMELDET, CODE_KORREKT, BEMERKUNG, KOMMENTAR};
+    private static final String[] COLUMNS = {ID, DATE, CODE_REPORTED, CODE_ACTUAL, ANNOTATION, COMMENT};
 
     private static final int DATABASE_VERSION = 9;
     private static final String DATABASE_NAME = "StatDB";
@@ -37,11 +34,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         String create_db = "CREATE TABLE " + TABLE_STATS +
                 " ( " +
                 ID + " INTEGER PRIMARY KEY, " +
-                DATUM + " TEXT, " +
-                CODE_GEMELDET + " TEXT, " +
-                CODE_KORREKT + " TEXT, " +
-                BEMERKUNG + " TEXT, " +
-                KOMMENTAR + " TEXT" +
+                DATE + " TEXT, " +
+                CODE_REPORTED + " TEXT, " +
+                CODE_ACTUAL + " TEXT, " +
+                ANNOTATION + " TEXT, " +
+                COMMENT + " TEXT" +
                 " )";
         db.execSQL(create_db);
     }
@@ -53,29 +50,29 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    public void addDatensatz(Datensatz d) {
+    public void addDataset(Dataset d) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues vals = new ContentValues();
         vals.put(ID, d.getId());
-        vals.put(DATUM, d.getDatum());
-        vals.put(CODE_GEMELDET, d.getCodeGemeldet().toString());
-        if (d.getCodeKorrekt() != null)
-            vals.put(CODE_KORREKT, d.getCodeKorrekt().toString());
-        vals.put(BEMERKUNG, d.getBemerkung());
-        vals.put(KOMMENTAR, d.getKommentar());
+        vals.put(DATE, d.getDate());
+        vals.put(CODE_REPORTED, d.getCodeReported().toString());
+        if (d.getCodeActual() != null)
+            vals.put(CODE_ACTUAL, d.getCodeActual().toString());
+        vals.put(ANNOTATION, d.getAnnotation());
+        vals.put(COMMENT, d.getComment());
 
         db.insert(TABLE_STATS, null, vals);
         db.close();
     }
 
-    public void deleteDatensatz(int id) {
+    public void deleteDataset(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_STATS, ID + "=" + id, null);
         db.close();
     }
 
-    public Datensatz getDatensatz(int id) {
+    public Dataset getDataset(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
@@ -89,27 +86,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Datensatz d = new Datensatz();
+        Dataset d = new Dataset();
 
         d.setId(Integer.parseInt(cursor.getString(0)));
-        d.setDatum(cursor.getString(1));
-        d.setCodeGemeldet(Datensatz.stringToEinsatzcode(cursor.getString(2)));
+        d.setDate(cursor.getString(1));
+        d.setCodeReported(Dataset.stringToEmergencyCode(cursor.getString(2)));
 
         try {
-            d.setCodeKorrekt(Datensatz.stringToEinsatzcode(cursor.getString(3)));
+            d.setCodeActual(Dataset.stringToEmergencyCode(cursor.getString(3)));
         } catch(Exception e) {
-            d.setCodeKorrekt(new Einsatzcode());
+            d.setCodeActual(new EmergencyCode());
         }
 
-        d.setBemerkung(cursor.getString(4));
-        d.setKommentar(cursor.getString(5));
+        d.setAnnotation(cursor.getString(4));
+        d.setComment(cursor.getString(5));
 
         return d;
     }
 
-    public List<Datensatz> getAlleDatensaetze() {
-        List<Datensatz> ld = new ArrayList<>();
-        Datensatz d;
+    public List<Dataset> getAllDatasets() {
+        List<Dataset> ld = new ArrayList<>();
+        Dataset d;
 
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_STATS + " ORDER BY " + ID + " DESC";
@@ -117,20 +114,20 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                d = new Datensatz();
+                d = new Dataset();
 
                 d.setId(Integer.parseInt(cursor.getString(0)));
-                d.setDatum(cursor.getString(1));
-                d.setCodeGemeldet(Datensatz.stringToEinsatzcode(cursor.getString(2)));
+                d.setDate(cursor.getString(1));
+                d.setCodeReported(Dataset.stringToEmergencyCode(cursor.getString(2)));
 
                 try {
-                    d.setCodeKorrekt(Datensatz.stringToEinsatzcode(cursor.getString(3)));
+                    d.setCodeActual(Dataset.stringToEmergencyCode(cursor.getString(3)));
                 } catch(Exception e) {
-                    d.setCodeKorrekt(new Einsatzcode());
+                    d.setCodeActual(new EmergencyCode());
                 }
 
-                d.setBemerkung(cursor.getString(4));
-                d.setKommentar(cursor.getString(5));
+                d.setAnnotation(cursor.getString(4));
+                d.setComment(cursor.getString(5));
 
                 ld.add(d);
             } while (cursor.moveToNext());

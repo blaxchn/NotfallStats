@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.florianbeuckert.notfallstats.Data.Datensatz;
-import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
+import com.example.florianbeuckert.notfallstats.Data.Dataset;
 import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.List;
@@ -57,10 +56,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    private List<Datensatz> daten;
+    private List<Dataset> daten;
     private MainActivity mainActivity;
 
-    public MyAdapter(List<Datensatz> daten, MainActivity mainActivity) {
+    public MyAdapter(List<Dataset> daten, MainActivity mainActivity) {
         this.daten = daten;
         this.mainActivity = mainActivity;
     }
@@ -73,34 +72,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Datensatz d = daten.get(position);
+        Dataset d = daten.get(position);
 
         holder.idEintrag.setText("" + d.getId());
-        holder.datum.setText(d.getDatum());
+        holder.datum.setText(d.getDate());
 
         switch (d.evaluateStat()) {
-            case Datensatz.STAT_KORREKT:
+            case Dataset.STAT_CORRECT:
                 holder.img.setImageResource(R.drawable.check);
                 break;
-            case Datensatz.STAT_PRIO_KORREKT:
+            case Dataset.STAT_PRIORITY_ACCURATE:
                 holder.img.setImageResource(R.drawable.arrow_right);
                 break;
-            case Datensatz.STAT_PRIO_ZU_HOCH:
+            case Dataset.STAT_PRIORITY_TOO_HIGH:
                 holder.img.setImageResource(R.drawable.arrow_bottom_right);
                 break;
-            case Datensatz.STAT_PRIO_ZU_NIEDRIG:
+            case Dataset.STAT_PRIORITY_TOO_LOW:
                 holder.img.setImageResource(R.drawable.arrow_top_right);
                 break;
-            case Datensatz.STAT_NICHT_BESTIMMBAR:
+            case Dataset.STAT_N_A:
                 holder.img.setImageResource(R.drawable.alert);
                 break;
         }
 
-        holder.codeGemeldet.setText(d.getCodeGemeldet().toString());
-        holder.codeKorrekt.setText(d.getCodeKorrekt().toString());
+        holder.codeGemeldet.setText(d.getCodeReported().toString());
+        holder.codeKorrekt.setText(d.getCodeActual().toString());
 
-        holder.bemerkung.setText(d.getBemerkung());
-        holder.kommentar.setText(d.getKommentar());
+        holder.bemerkung.setText(d.getAnnotation());
+        holder.kommentar.setText(d.getComment());
     }
 
     @Override

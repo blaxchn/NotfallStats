@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewController.EingabeMaske0Activity">
+    tools:context=".ViewController.Form5_commentActivity">
 
     <EditText
-        android:id="@+id/editTextID"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:id="@+id/editTextKommentar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:hint="@string/hint_id"
-        android:inputType="number"
-        android:maxLength="10"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorDeactivated"
-        android:textSize="36sp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:inputType="textMultiLine"
+        android:lines="1"
+        android:maxLength="60"
+        android:maxLines="1" />
 
     <ImageButton
-        android:id="@+id/btnNext0"
+        android:id="@+id/btnDone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -27,17 +27,18 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
-        android:onClick="next0Pressed"
+        android:onClick="donePressed"
         android:scaleType="fitXY"
         android:src="@drawable/chevron_right" />
 
     <TextView
-        android:id="@+id/textViewInfoID"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editTextID"
+        android:layout_above="@+id/editTextKommentar"
         android:layout_centerHorizontal="true"
-        android:layout_margin="8dp"
-        android:text="@string/info_text_id"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/info_text_kommentare"
         android:textSize="18sp" />
 </RelativeLayout>

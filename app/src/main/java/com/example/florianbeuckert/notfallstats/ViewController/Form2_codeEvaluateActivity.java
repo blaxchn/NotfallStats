@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.florianbeuckert.notfallstats.Data.Einsatzcode;
+import com.example.florianbeuckert.notfallstats.Data.EmergencyCode;
 import com.example.florianbeuckert.notfallstats.R;
 
-public class EingabeMaske2Activity extends AppCompatActivity {
+public class Form2_codeEvaluateActivity extends AppCompatActivity {
 
     private TextView gemeldeterCode;
 
@@ -21,7 +21,7 @@ public class EingabeMaske2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eingabe_maske2);
+        setContentView(R.layout.activity_form2);
 
         getSupportActionBar().setTitle(R.string.header_maske);
 
@@ -32,11 +32,11 @@ public class EingabeMaske2Activity extends AppCompatActivity {
         extra_N = i.getBooleanExtra("n", false);
 
         gemeldeterCode = (TextView) findViewById(R.id.textViewMeldungCode);
-        gemeldeterCode.setText(new Einsatzcode(extra_AA, extra_BB, extra_N).toString());
+        gemeldeterCode.setText(new EmergencyCode(extra_AA, extra_BB, extra_N).toString());
     }
 
     public void btnJaPressed(View v) {
-        final Intent i = new Intent(this, EingabeMaske5Activity.class);
+        final Intent i = new Intent(this, Form5_commentActivity.class);
 
         i.putExtra("id", extra_ID);
         i.putExtra("aa", extra_AA);
@@ -47,7 +47,7 @@ public class EingabeMaske2Activity extends AppCompatActivity {
     }
 
     public void btnNeinPressed(View v) {
-        final Intent i = new Intent(this, EingabeMaske3Activity.class);
+        final Intent i = new Intent(this, Form3_annotationActivity.class);
 
         i.putExtra("id", extra_ID);
         i.putExtra("aa", extra_AA);

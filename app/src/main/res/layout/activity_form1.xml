@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewController.EingabeMaske1Activity">
+    tools:context=".ViewController.Form1_codeReportedActivity">
 
     <LinearLayout
         android:id="@+id/linearLayoutEinsatzcode"

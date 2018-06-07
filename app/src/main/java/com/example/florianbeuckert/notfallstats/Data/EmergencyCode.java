@@ -1,18 +1,18 @@
 package com.example.florianbeuckert.notfallstats.Data;
 
-public class Einsatzcode {
+public class EmergencyCode {
 
     int aa;
     int bb;
     boolean n;
 
-    public Einsatzcode() {
+    public EmergencyCode() {
         aa = -1;
         bb = -1;
         n = false;
     }
 
-    public Einsatzcode(int aa, int bb, boolean n) {
+    public EmergencyCode(int aa, int bb, boolean n) {
         this.aa = aa;
         this.bb = bb;
         this.n = n;

@@ -16,12 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewController.EingabeMaske1Activity" />
-        <activity android:name=".ViewController.EingabeMaske0Activity" />
-        <activity android:name=".ViewController.EingabeMaske2Activity" />
-        <activity android:name=".ViewController.EingabeMaske4Activity" />
-        <activity android:name=".ViewController.EingabeMaske3Activity" />
-        <activity android:name=".ViewController.EingabeMaske5Activity"></activity>
+        <activity android:name=".ViewController.Form1_codeReportedActivity" />
+        <activity android:name=".ViewController.Form0_idActivity" />
+        <activity android:name=".ViewController.Form2_codeEvaluateActivity" />
+        <activity android:name=".ViewController.Form4_codeActualActivity" />
+        <activity android:name=".ViewController.Form3_annotationActivity" />
+        <activity android:name=".ViewController.Form5_commentActivity"></activity>
     </application>
 
 </manifest>
