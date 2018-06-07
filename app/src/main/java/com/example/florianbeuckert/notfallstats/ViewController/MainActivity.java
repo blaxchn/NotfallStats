@@ -36,31 +36,21 @@ public class MainActivity extends AppCompatActivity {
         tvStatPrioKorrekt = (TextView) findViewById(R.id.tvStatPrioKorrekt);
         tvStatPrioZuHoch = (TextView) findViewById(R.id.tvStatPrioZuHoch);
         tvStatPrioZuNiedrig = (TextView) findViewById(R.id.tvStatPrioZuNiedrig);
-
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        sqLiteHelper = new MySQLiteHelper(getApplicationContext());
-        daten = sqLiteHelper.getAlleDatensaetze();
-
-        myAdapter = new MyAdapter(daten);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setAdapter(myAdapter);
 
-        updateStatBar(daten);
+        sqLiteHelper = new MySQLiteHelper(getApplicationContext());
+
+        aktualisieren();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        daten = sqLiteHelper.getAlleDatensaetze();
-        myAdapter.notifyDataSetChanged();
-        updateStatBar(daten);
-        System.out.println("\nR E S U M E\n");
+        aktualisieren();
     }
 
     public void fabPressed(View v) {
@@ -68,7 +58,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void updateStatBar(List<Datensatz> daten) {
+    public void loescheEintrag(int id) {
+        sqLiteHelper.deleteDatensatz(id);
+        aktualisieren();
+    }
+
+    private void aktualisieren() {
+        daten = sqLiteHelper.getAlleDatensaetze();
+        myAdapter = new MyAdapter(daten, this);
+        recyclerView.setAdapter(myAdapter);
+
         int[] statCounter = new int[]{0, 0, 0, 0, 0};
 
         for (Datensatz d : daten) {

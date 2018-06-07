@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.florianbeuckert.notfallstats.Data.Datensatz;
+import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
 import com.example.florianbeuckert.notfallstats.R;
 
 import java.util.List;
@@ -19,13 +19,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView id, datum, codeGemeldet, codeKorrekt, bemerkung, kommentar;
+        private TextView idEintrag, datum, codeGemeldet, codeKorrekt, bemerkung, kommentar;
         private ImageView img;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
-            id = (TextView) itemView.findViewById(R.id.row_id);
+            idEintrag = (TextView) itemView.findViewById(R.id.row_id);
             datum = (TextView) itemView.findViewById(R.id.row_datum);
             codeGemeldet = (TextView) itemView.findViewById(R.id.row_code_gemeldet);
             codeKorrekt = (TextView) itemView.findViewById(R.id.row_code_korrekt);
@@ -38,17 +38,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 public boolean onLongClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
-                    builder.setMessage("Eintrag " + id.getText() + " wirklich löschen?");
+                    builder.setMessage("Eintrag " + idEintrag.getText() + " wirklich löschen?");
 
                     builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-
+                            mainActivity.loescheEintrag(Integer.parseInt(idEintrag.getText().toString()));
                         }
                     });
 
-                    builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {}
-                    });
+                    builder.setNegativeButton("Nein", null);
 
                     AlertDialog dialog = builder.create();
                     builder.show();
@@ -60,9 +58,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     private List<Datensatz> daten;
+    private MainActivity mainActivity;
 
-    public MyAdapter(List<Datensatz> daten) {
+    public MyAdapter(List<Datensatz> daten, MainActivity mainActivity) {
         this.daten = daten;
+        this.mainActivity = mainActivity;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Datensatz d = daten.get(position);
 
-        holder.id.setText("" + d.getId());
+        holder.idEintrag.setText("" + d.getId());
         holder.datum.setText(d.getDatum());
 
         switch (d.evaluateStat()) {
