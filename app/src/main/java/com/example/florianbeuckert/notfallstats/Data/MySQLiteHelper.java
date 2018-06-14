@@ -72,6 +72,19 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public boolean datasetExists(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String Query = "SELECT * FROM " + TABLE_STATS + " WHERE " + ID + " = " + id;
+        Cursor cursor = db.rawQuery(Query, null);
+
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
     public Dataset getDataset(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -134,4 +147,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
         return ld;
     }
+
 }

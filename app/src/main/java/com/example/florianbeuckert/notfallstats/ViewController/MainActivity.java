@@ -20,9 +20,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private MySQLiteHelper sqLiteHelper;
-    private List<Dataset> daten = new ArrayList<Dataset>();
+    private List<Dataset> data = new ArrayList<Dataset>();
 
-    private TextView tvStatKorrekt, tvStatPrioKorrekt, tvStatPrioZuHoch, tvStatPrioZuNiedrig;
+    private TextView tvStatCorrekt, tvStatPriorityCorrect, tvStatPriorityTooHigh, tvStatPriorityTooLow;
 
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvStatKorrekt = (TextView) findViewById(R.id.tvStatKorrekt);
-        tvStatPrioKorrekt = (TextView) findViewById(R.id.tvStatPrioKorrekt);
-        tvStatPrioZuHoch = (TextView) findViewById(R.id.tvStatPrioZuHoch);
-        tvStatPrioZuNiedrig = (TextView) findViewById(R.id.tvStatPrioZuNiedrig);
+        tvStatCorrekt = (TextView) findViewById(R.id.tvStatCorrekt);
+        tvStatPriorityCorrect = (TextView) findViewById(R.id.tvStatPriorityCorrect);
+        tvStatPriorityTooHigh = (TextView) findViewById(R.id.tvStatPriorityTooHigh);
+        tvStatPriorityTooLow = (TextView) findViewById(R.id.tvStatPriorityTooLow);
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         sqLiteHelper = new MySQLiteHelper(getApplicationContext());
 
-        aktualisieren();
+        refresh();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        aktualisieren();
+        refresh();
     }
 
     public void fabPressed(View v) {
@@ -58,33 +58,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void loescheEintrag(int id) {
+    public void deleteDataset(int id) {
         sqLiteHelper.deleteDataset(id);
-        aktualisieren();
+        refresh();
     }
 
-    private void aktualisieren() {
-        daten = sqLiteHelper.getAllDatasets();
-        myAdapter = new MyAdapter(daten, this);
+    private void refresh() {
+        data = sqLiteHelper.getAllDatasets();
+        myAdapter = new MyAdapter(data, this);
         recyclerView.setAdapter(myAdapter);
 
-        int[] statCounter = new int[]{0, 0, 0, 0, 0};
-
-        for (Dataset d : daten) {
-            statCounter[d.evaluateStat()]++;
-        }
-
-        int totalSize = daten.size();
-        if (totalSize > 0) {
-            int[] stats = new int[4];
-            for (int i = 0; i < stats.length; i++) {
-                stats[i] = (100 * statCounter[i]) / totalSize;
-            }
-
-            tvStatKorrekt.setText(stats[0] + "%");
-            tvStatPrioKorrekt.setText(stats[1] + "%");
-            tvStatPrioZuHoch.setText(stats[2] + "%");
-            tvStatPrioZuNiedrig.setText(stats[3] + "%");
-        }
+        int[] stats = Dataset.getStatArray(data);
+        tvStatCorrekt.setText(stats[0] + "%");
+        tvStatPriorityCorrect.setText(stats[1] + "%");
+        tvStatPriorityTooHigh.setText(stats[2] + "%");
+        tvStatPriorityTooLow.setText(stats[3] + "%");
     }
 }

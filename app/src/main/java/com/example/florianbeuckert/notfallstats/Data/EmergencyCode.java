@@ -30,21 +30,21 @@ public class EmergencyCode {
         return n;
     }
 
-    public String getAAasString() {
+    private String getAAasString() {
         if (aa > 9)
             return "" + aa;
         else
             return "0" + aa;
     }
 
-    public String getBBasString() {
+    private String getBBasString() {
         if (bb > 9)
             return "" + bb;
         else
             return "0" + bb;
     }
 
-    public String getNasString() {
+    private String getNasString() {
         if (n)
             return "N";
         else

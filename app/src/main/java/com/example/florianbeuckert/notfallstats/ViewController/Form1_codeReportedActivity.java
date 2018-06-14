@@ -15,7 +15,7 @@ public class Form1_codeReportedActivity extends AppCompatActivity {
 
     private EditText editTextAA;
     private EditText editTextBB;
-    private Button buttonNotarzt;
+    private Button buttonEmergencyDoctor;
 
     private int extra_ID;
 
@@ -24,22 +24,22 @@ public class Form1_codeReportedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
 
         editTextAA = (EditText) findViewById(R.id.editTextAA);
         editTextBB = (EditText) findViewById(R.id.editTextBB);
-        buttonNotarzt = (Button) findViewById(R.id.buttonNotarzt);
-        buttonNotarzt.setTextColor(Color.LTGRAY);
+        buttonEmergencyDoctor = (Button) findViewById(R.id.buttonEmDoc);
+        buttonEmergencyDoctor.setTextColor(Color.LTGRAY);
     }
 
-    public void buttonNotarztPressed(View v) {
-        if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
-            buttonNotarzt.setTextColor(getResources().getColor(R.color.colorDeactivated));
+    public void buttonEmDocPressed(View v) {
+        if (buttonEmergencyDoctor.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
+            buttonEmergencyDoctor.setTextColor(getResources().getColor(R.color.colorDeactivated));
         else
-            buttonNotarzt.setTextColor(getResources().getColor(R.color.colorPrimary));
+            buttonEmergencyDoctor.setTextColor(getResources().getColor(R.color.colorPrimary));
     }
 
     public void next1Pressed(View v) {
@@ -53,12 +53,12 @@ public class Form1_codeReportedActivity extends AppCompatActivity {
             aa = Integer.parseInt(aa_string);
             bb = Integer.parseInt(bb_string);
         } catch (Exception e) {
-            Toast.makeText(this, "Bitte einen korrekten Code eingeben!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.info_text_please_enter_valid_code), Toast.LENGTH_LONG).show();
             return;
         }
 
         boolean n = false;
-        if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
+        if (buttonEmergencyDoctor.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
             n = true;
 
         final Intent i = new Intent(this, Form2_codeEvaluateActivity.class);

@@ -20,7 +20,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvStatKorrekt"
+                android:id="@+id/tvStatCorrekt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -34,12 +34,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_below="@+id/tvStatKorrekt"
+                android:layout_below="@+id/tvStatCorrekt"
                 android:layout_centerHorizontal="true"
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="@string/stat_korrekt"
+                android:text="@string/stat_correct"
                 android:textSize="12sp" />
         </RelativeLayout>
 
@@ -56,7 +56,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvStatPrioKorrekt"
+                android:id="@+id/tvStatPriorityCorrect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -70,49 +70,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_below="@+id/tvStatPrioKorrekt"
+                android:layout_below="@+id/tvStatPriorityCorrect"
                 android:layout_centerHorizontal="true"
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="@string/stat_prio_korrekt"
-                android:textSize="12sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/background_dark"></RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/tvStatPrioZuHoch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="0%"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/tvStatPrioZuHoch"
-                android:layout_centerHorizontal="true"
-                android:layout_marginEnd="4dp"
-                android:layout_marginStart="4dp"
-                android:gravity="center"
-                android:text="@string/stat_prio_zu_hoch"
+                android:text="@string/stat_priority_correct"
                 android:textSize="12sp" />
 
         </RelativeLayout>
@@ -130,7 +93,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvStatPrioZuNiedrig"
+                android:id="@+id/tvStatPriorityTooHigh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -144,12 +107,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_below="@+id/tvStatPrioZuNiedrig"
+                android:layout_below="@+id/tvStatPriorityTooHigh"
                 android:layout_centerHorizontal="true"
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
-                android:text="@string/stat_prio_zu_niedrig"
+                android:text="@string/stat_priority_too_high"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/background_dark"></RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvStatPriorityTooLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="0%"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/tvStatPriorityTooLow"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                android:text="@string/stat_priority_too_low"
                 android:textSize="12sp" />
 
         </RelativeLayout>

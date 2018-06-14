@@ -27,7 +27,7 @@ public class Form4_codeActualActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form4);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
@@ -60,7 +60,7 @@ public class Form4_codeActualActivity extends AppCompatActivity {
             aa = Integer.parseInt(aa_string);
             bb = Integer.parseInt(bb_string);
         } catch (Exception e) {
-            Toast.makeText(this, "Bitte einen korrekten Code eingeben!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.info_text_please_enter_valid_code), Toast.LENGTH_LONG).show();
             return;
         }
 

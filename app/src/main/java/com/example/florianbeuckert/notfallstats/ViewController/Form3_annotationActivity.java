@@ -25,7 +25,7 @@ public class Form3_annotationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form3);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
@@ -36,7 +36,7 @@ public class Form3_annotationActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.grund_fehlmeldung, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.reason_report_was_wrong, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.florianbeuckert.notfallstats.Data.MySQLiteHelper;
 import com.example.florianbeuckert.notfallstats.R;
 
 public class Form0_idActivity extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class Form0_idActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form0);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         editTextID = (EditText) findViewById(R.id.editTextID);
     }
@@ -30,12 +31,18 @@ public class Form0_idActivity extends AppCompatActivity {
         try {
             id = Integer.parseInt(id_string);
         } catch (Exception e) {
-            Toast.makeText(this, "Bitte eine gültige ID eingeben", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.info_text_id_not_valid), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (id == -1) {
-            Toast.makeText(this, "Bitte eine gültige ID eingeben", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.info_text_id_not_valid), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
+        if (sqLiteHelper.datasetExists(id)) {
+            Toast.makeText(this, getString(R.string.info_text_id_exists), Toast.LENGTH_SHORT).show();
             return;
         }
 

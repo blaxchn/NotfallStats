@@ -17,7 +17,7 @@
         android:paddingRight="8dp"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        android:text="@string/meldung"
+        android:text="@string/report"
         android:textAlignment="center"
         android:textSize="18sp" />
 
@@ -50,7 +50,7 @@
             android:background="@android:color/transparent"
             android:onClick="btnJaPressed"
             android:padding="8dp"
-            android:text="@string/meldung_korrekt"
+            android:text="@string/yes"
             android:textColor="@color/colorAccent"
             android:textSize="24sp" />
 
@@ -64,7 +64,7 @@
             android:background="@android:color/transparent"
             android:onClick="btnNeinPressed"
             android:padding="8dp"
-            android:text="@string/meldung_fehlerhaft"
+            android:text="@string/no"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
     </LinearLayout>
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayoutYesNo"
         android:layout_alignParentStart="true"
-        android:text="@string/meldung_frage"
+        android:text="@string/report_question"
         android:textAlignment="center"
         android:textSize="18sp" />
 

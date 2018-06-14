@@ -1,23 +1,25 @@
 <resources>
     <string name="app_name">Notfall Stats</string>
-    <string name="stat_korrekt">korrekt</string>
-    <string name="stat_prio_korrekt">Prio korrekt</string>
-    <string name="stat_prio_zu_niedrig">Prio zu niedrig</string>
-    <string name="stat_prio_zu_hoch">Prio zu hoch</string>
+    <string name="stat_correct">korrekt</string>
+    <string name="stat_priority_correct">Prio korrekt</string>
+    <string name="stat_priority_too_low">Prio zu niedrig</string>
+    <string name="stat_priority_too_high">Prio zu hoch</string>
     <string name="info_id">ID:</string>
-    <string name="header_maske">Neuen Einsatz anlegen</string>
+    <string name="header_form">Neuen Einsatz anlegen</string>
     <string name="info_text_id">Bitte geben Sie die Einsatz-ID ein</string>
+    <string name="info_text_id_not_valid">Bitte geben sie eine gültige ID ein!</string>
+    <string name="info_text_id_exists">Ein Eintrag mit dieser ID existiert bereits!</string>
     <string name="hint_id">123456</string>
     <string name="hint_aabb">00</string>
-    <string name="notarzt_abk">N</string>
-    <string name="next">Weiter</string>
-    <string name="info_text_code_meldung">Gemeldeter Einsatzcode</string>
-    <string name="meldung">Gemeldeter Einsatzcode</string>
-    <string name="meldung_frage">Verlief der Einsatz wie erwartet?</string>
-    <string name="meldung_korrekt">Ja</string>
-    <string name="meldung_fehlerhaft">Nein</string>
-    <string name="info_text_grund_fehlmeldung">Es gab folgende Besonderheiten</string>
-    <string-array name="grund_fehlmeldung">
+    <string name="em_doc">N</string>
+    <string name="info_text_code_reported">Gemeldeter Einsatzcode</string>
+    <string name="info_text_please_enter_valid_code">Bitte einen gültigen Code eingeben!</string>
+    <string name="report">Gemeldeter Einsatzcode</string>
+    <string name="report_question">Verlief der Einsatz wie erwartet?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="info_text_reason_report_was_wrong">Es gab folgende Besonderheiten</string>
+    <string-array name="reason_report_was_wrong">
         <item>Keine Besonderheiten - nur Fehleinstufung</item>
         <item>Patient verweigert Transport, trotz Transportindikation</item>
         <item>Patient verweigert Transport, keine Transportindikation</item>
@@ -35,10 +37,13 @@
         <item>Auf Anfahrt abgebrochen - durch HvO</item>
         <item>Auf Anfahrt abgebrochen - umdisponiert</item>
     </string-array>
-    <string name="checkbox_korrektur">Korrekter Einsatzcode nicht bestimmbar</string>
-    <string name="info_text_code_korrektur">Bitte geben Sie den korrekten Einsatzcode ein</string>
-    <string name="info_text_kommentare">Zusätliche Kommentare</string>
-    <string name="done">Fertig</string>
-    <string name="keine_bemerkung">(keine Bemerkungen)</string>
-    <string name="kein_kommentar">(kein Kommentar)</string>
+    <string name="checkbox_correct_code_n_a">Korrekter Einsatzcode nicht bestimmbar</string>
+    <string name="info_text_code_correction">Bitte geben Sie den korrekten Einsatzcode ein</string>
+    <string name="info_text_comment">Zusätliche Kommentare</string>
+    <string name="no_annotation">(keine Bemerkungen)</string>
+    <string name="no_comment">(kein Kommentar)</string>
+    <string name="toast_new_dataset_1">Neuer Eintrag (ID:&#160;</string>
+    <string name="toast_new_dataset_2">) wurde angelegt</string>
+    <string name="dialog_delete_dataset_1">Eintrag&#160;</string>
+    <string name="dialog_delete_dataset_2">&#160;wirklich löschen?</string>
 </resources>

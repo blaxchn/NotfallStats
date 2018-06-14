@@ -33,7 +33,7 @@ public class Form5_commentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form5);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
@@ -61,18 +61,18 @@ public class Form5_commentActivity extends AppCompatActivity {
         if (extra_Bemerkung != null)
             datensatz.setAnnotation(extra_Bemerkung);
         else
-            datensatz.setAnnotation(getString(R.string.keine_bemerkung));
+            datensatz.setAnnotation(getString(R.string.no_annotation));
 
         String kommentar = editText.getText().toString().trim();
         if (!kommentar.equals(""))
             datensatz.setComment(kommentar);
         else
-            datensatz.setComment(getString(R.string.kein_kommentar));
+            datensatz.setComment(getString(R.string.no_comment));
 
         MySQLiteHelper sqLiteHelper = new MySQLiteHelper(getApplicationContext());
         sqLiteHelper.addDataset(datensatz);
 
-        Toast.makeText(getApplicationContext(), "Neuer Eintrag (ID: " + extra_ID + ") wurde angelegt", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.toast_new_dataset_1) + extra_ID + getString(R.string.toast_new_dataset_2), Toast.LENGTH_LONG).show();
 
         final Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

@@ -22,7 +22,7 @@
         android:layout_above="@+id/spinner"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:text="@string/info_text_grund_fehlmeldung"
+        android:text="@string/info_text_reason_report_was_wrong"
         android:textSize="18sp" />
 
     <ImageButton
@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="8dp"
         android:layout_toLeftOf="@id/btnNext3"
-        android:text="@string/checkbox_korrektur"
+        android:text="@string/checkbox_correct_code_n_a"
         android:textColor="@color/colorAccent"
         android:textSize="16sp" />
 </RelativeLayout>

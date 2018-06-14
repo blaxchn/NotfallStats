@@ -50,7 +50,7 @@
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
             android:onClick="buttonNotarzt2Pressed"
-            android:text="@string/notarzt_abk"
+            android:text="@string/em_doc"
             android:textColor="@color/colorDeactivated"
             android:textSize="36sp" />
     </LinearLayout>
@@ -75,7 +75,7 @@
         android:layout_above="@+id/linearLayoutEinsatzcodeKorrektur"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:text="@string/info_text_code_korrektur"
+        android:text="@string/info_text_code_correction"
         android:textSize="18sp" />
 
 </RelativeLayout>

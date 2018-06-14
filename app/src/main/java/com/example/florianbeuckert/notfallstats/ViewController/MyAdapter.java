@@ -18,18 +18,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView idEintrag, datum, codeGemeldet, codeKorrekt, bemerkung, kommentar;
+        private TextView idDataset, date, codeReported, codeActual, annotation, comment;
         private ImageView img;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
-            idEintrag = (TextView) itemView.findViewById(R.id.row_id);
-            datum = (TextView) itemView.findViewById(R.id.row_datum);
-            codeGemeldet = (TextView) itemView.findViewById(R.id.row_code_gemeldet);
-            codeKorrekt = (TextView) itemView.findViewById(R.id.row_code_korrekt);
-            bemerkung = (TextView) itemView.findViewById(R.id.row_bemerkung);
-            kommentar = (TextView) itemView.findViewById(R.id.row_kommentar);
+            idDataset = (TextView) itemView.findViewById(R.id.row_id);
+            date = (TextView) itemView.findViewById(R.id.row_date);
+            codeReported = (TextView) itemView.findViewById(R.id.row_code_reported);
+            codeActual = (TextView) itemView.findViewById(R.id.row_code_correkt);
+            annotation = (TextView) itemView.findViewById(R.id.row_annotation);
+            comment = (TextView) itemView.findViewById(R.id.row_comment);
             img = (ImageView) itemView.findViewById(R.id.row_image);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -37,15 +37,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 public boolean onLongClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
-                    builder.setMessage("Eintrag " + idEintrag.getText() + " wirklich löschen?");
+                    builder.setMessage(itemView.getContext().getString(R.string.dialog_delete_dataset_1) + idDataset.getText() + itemView.getContext().getString(R.string.dialog_delete_dataset_2));
 
-                    builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(itemView.getContext().getString(R.string.yes), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            mainActivity.loescheEintrag(Integer.parseInt(idEintrag.getText().toString()));
+                            mainActivity.deleteDataset(Integer.parseInt(idDataset.getText().toString()));
                         }
                     });
 
-                    builder.setNegativeButton("Nein", null);
+                    builder.setNegativeButton(itemView.getContext().getString(R.string.no), null);
 
                     AlertDialog dialog = builder.create();
                     builder.show();
@@ -74,8 +74,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Dataset d = daten.get(position);
 
-        holder.idEintrag.setText("" + d.getId());
-        holder.datum.setText(d.getDate());
+        holder.idDataset.setText("" + d.getId());
+        holder.date.setText(d.getDate());
 
         switch (d.evaluateStat()) {
             case Dataset.STAT_CORRECT:
@@ -95,11 +95,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 break;
         }
 
-        holder.codeGemeldet.setText(d.getCodeReported().toString());
-        holder.codeKorrekt.setText(d.getCodeActual().toString());
+        holder.codeReported.setText(d.getCodeReported().toString());
+        holder.codeActual.setText(d.getCodeActual().toString());
 
-        holder.bemerkung.setText(d.getAnnotation());
-        holder.kommentar.setText(d.getComment());
+        holder.annotation.setText(d.getAnnotation());
+        holder.comment.setText(d.getComment());
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.example.florianbeuckert.notfallstats.Data;
 
+import java.util.List;
+
 public class Dataset {
 
     private int id;
@@ -39,6 +41,24 @@ public class Dataset {
         if (codeReported.getAA() > codeActual.getAA())
             return STAT_PRIORITY_TOO_LOW;
         return -1;
+    }
+
+    public static int[] getStatArray(List<Dataset> data) {
+        int[] statCounter = new int[]{0, 0, 0, 0, 0};
+
+        for (Dataset d : data) {
+            statCounter[d.evaluateStat()]++;
+        }
+
+        int[] stats = new int[]{0, 0, 0, 0};
+        int totalSize = data.size();
+        if (totalSize > 0) {
+            for (int i = 0; i < stats.length; i++) {
+                stats[i] = (100 * statCounter[i]) / totalSize;
+            }
+        }
+
+        return stats;
     }
 
     public static EmergencyCode stringToEmergencyCode(String codeAsString) {

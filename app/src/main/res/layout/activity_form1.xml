@@ -44,13 +44,13 @@
             android:textSize="36sp" />
 
         <Button
-            android:id="@+id/buttonNotarzt"
+            android:id="@+id/buttonEmDoc"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
-            android:onClick="buttonNotarztPressed"
-            android:text="@string/notarzt_abk"
+            android:onClick="buttonEmDocPressed"
+            android:text="@string/em_doc"
             android:textColor="@color/colorDeactivated"
             android:textSize="36sp" />
     </LinearLayout>
@@ -75,7 +75,7 @@
         android:layout_above="@+id/linearLayoutEinsatzcode"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:text="@string/info_text_code_meldung"
+        android:text="@string/info_text_code_reported"
         android:textSize="18sp" />
 
 </RelativeLayout>

@@ -23,7 +23,7 @@ public class Form2_codeEvaluateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2);
 
-        getSupportActionBar().setTitle(R.string.header_maske);
+        getSupportActionBar().setTitle(R.string.header_form);
 
         Intent i = getIntent();
         extra_ID = i.getIntExtra("id", -1);
@@ -35,25 +35,21 @@ public class Form2_codeEvaluateActivity extends AppCompatActivity {
         gemeldeterCode.setText(new EmergencyCode(extra_AA, extra_BB, extra_N).toString());
     }
 
-    public void btnJaPressed(View v) {
-        final Intent i = new Intent(this, Form5_commentActivity.class);
-
+    private void nextIntent(Intent i) {
         i.putExtra("id", extra_ID);
         i.putExtra("aa", extra_AA);
         i.putExtra("bb", extra_BB);
         i.putExtra("n", extra_N);
-
         startActivity(i);
+    }
+
+    public void btnJaPressed(View v) {
+        final Intent i = new Intent(this, Form5_commentActivity.class);
+        nextIntent(i);
     }
 
     public void btnNeinPressed(View v) {
         final Intent i = new Intent(this, Form3_annotationActivity.class);
-
-        i.putExtra("id", extra_ID);
-        i.putExtra("aa", extra_AA);
-        i.putExtra("bb", extra_BB);
-        i.putExtra("n", extra_N);
-
-        startActivity(i);
+        nextIntent(i);
     }
 }
