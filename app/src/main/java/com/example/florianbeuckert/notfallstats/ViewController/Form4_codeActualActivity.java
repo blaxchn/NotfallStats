@@ -42,7 +42,7 @@ public class Form4_codeActualActivity extends AppCompatActivity {
         buttonNotarzt = (Button) findViewById(R.id.buttonNotarzt2);
     }
 
-    public void buttonNotarzt2Pressed(View v) {
+    public void buttonEmDoc2Pressed(View v) {
         if (buttonNotarzt.getCurrentTextColor() == getResources().getColor(R.color.colorPrimary))
             buttonNotarzt.setTextColor(getResources().getColor(R.color.colorDeactivated));
         else

@@ -49,7 +49,7 @@
             android:layout_height="60dp"
             android:layout_margin="8dp"
             android:background="@android:color/transparent"
-            android:onClick="buttonNotarzt2Pressed"
+            android:onClick="buttonEmDoc2Pressed"
             android:text="@string/em_doc"
             android:textColor="@color/colorDeactivated"
             android:textSize="36sp" />
